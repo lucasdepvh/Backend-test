@@ -1,5 +1,5 @@
 default: &default
-  adapter: mysql2
+  adapter: postgresql
   encoding: utf8
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   host: 127.0.0.1
@@ -9,19 +9,17 @@ development:
   database: Backend-test_development
   username: root
   password: root
-  port: 3306
+  port: 5432
 
 test: &test
   <<: *default
-  host: mariadb
   database: Backend-test_test
   username: root
   password: root
-#  port: 3306
+  port: 5432
 
 production:
   <<: *default
-  host: mariadb
   database: Backend-test_production
   username: <%= ENV['database_user'] %>
   password: <%= ENV['database_pass'] %>
